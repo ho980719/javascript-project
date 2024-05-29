@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+</head>
+<style>
+    html, body {height: 100%}
+    body {background-color: darkgray; margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; flex-direction: column}
+    #view-count {font-size: 1.5em; font-weight: bold; color: white;}
+</style>
+<script>
+    const DECREASE = "DECREASE";
+    const RESET = "RESET";
+    const INCREASE = "INCREASE";
+</script>
+<body>
+    <h1>Counter</h1>
+    <div id="view-count">0</div>
+    <div>
+        <button onclick="count(DECREASE);">DECREASE</button>
+        <button onclick="count(RESET);">RESET</button>
+        <button onclick="count(INCREASE);">INCREASE</button>
+    </div>
+</body>
+<script>
+    const count = (type) => {
+        let value = document.getElementById('view-count').innerText;
+
+        if (type === DECREASE) {
+            value--;
+        } else if (type === INCREASE) {
+            value++;
+        } else if (type === RESET) {
+            value = 0;
+        }
+
+        document.getElementById('view-count').innerHTML = value;
+        changeCountColor(value);
+    }
+
+    const changeCountColor = (value) => {
+        if (value > 0) {
+            document.getElementById('view-count').style.color = 'green';
+        } else if (value < 0) {
+            document.getElementById('view-count').style.color = 'red';
+        } else {
+            document.getElementById('view-count').style.color = 'white';
+        }
+    }
+</script>
+</html>
