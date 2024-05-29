@@ -10,28 +10,31 @@
     #view-count {font-size: 1.5em; font-weight: bold; color: white;}
 </style>
 <script>
-    const DECREASE = "DECREASE";
-    const RESET = "RESET";
-    const INCREASE = "INCREASE";
+    const Type = {
+        DECREASE : "DECREASE",
+        RESET : "RESET",
+        INCREASE : "INCREASE",
+    };
+    Object.freeze(Type);
 </script>
 <body>
     <h1>Counter</h1>
     <div id="view-count">0</div>
     <div>
-        <button onclick="count(DECREASE);">DECREASE</button>
-        <button onclick="count(RESET);">RESET</button>
-        <button onclick="count(INCREASE);">INCREASE</button>
+        <button onclick="count(Type.DECREASE);">DECREASE</button>
+        <button onclick="count(Type.RESET);">RESET</button>
+        <button onclick="count(Type.INCREASE);">INCREASE</button>
     </div>
 </body>
 <script>
     const count = (type) => {
         let value = document.getElementById('view-count').innerText;
 
-        if (type === DECREASE) {
+        if (type === Type.DECREASE) {
             value--;
-        } else if (type === INCREASE) {
+        } else if (type === Type.INCREASE) {
             value++;
-        } else if (type === RESET) {
+        } else if (type === Type.RESET) {
             value = 0;
         }
 
