@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Flipper</title>
+</head>
+<style>
+    html, body { height: 100%; }
+    body {display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;}
+    .text-container {border: 1px solid black; padding: 25px; background-color: #000000; border-radius: 15px; display: flex; flex-direction: column; align-items: center; min-width: 55%}
+    .text-filed {color: #ffffff; font-weight: bold; font-size: 2em;}
+    .color-change {width: 50%; font-size: 1em;}
+</style>
+<body style="background-color: #ffffff">
+    <div class="text-container">
+        <p class="text-filed">Current BackGround Color => <i class="text-color">#ffffff</i></p>
+        <button class="color-change">Change Color</button>
+    </div>
+</body>
+<script>
+    const getRandomColor = () => {
+        return "#" + Math.floor(Math.random() * 16777215).toString(16);
+    }
+
+    document.querySelector(`.color-change`).addEventListener('click', () => {
+        const randomColor = getRandomColor();
+        document.querySelector('body').style.backgroundColor = randomColor;
+        document.querySelector('.text-color').innerHTML = randomColor;
+    });
+</script>
+</html>
