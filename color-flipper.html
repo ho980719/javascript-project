@@ -24,7 +24,7 @@
 
     document.querySelector(`.color-change`).addEventListener('click', () => {
         const randomColor = getRandomColor();
-        document.querySelector('body').style.backgroundColor = randomColor;
+        document.body.style.backgroundColor = randomColor;
         document.querySelector('.text-color').innerHTML = randomColor;
     });
 </script>
